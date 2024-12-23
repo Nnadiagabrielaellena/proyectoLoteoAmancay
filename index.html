@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venta de Lotes</title>
+  <link rel="stylesheet" href="./style/style.css">
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Venta de Lote</h1>
+    <p>Encuentra tu terreno ideal</p>
+
+    <div class="search-bar">
+      <input type="number" id="minPrice" placeholder="Precio mínimo">
+      <input type="number" id="maxPrice" placeholder="Precio máximo">
+      <button id="searchBtn">Buscar</button>
+    </div>
+  </div>
+
+  <div id="loteos-container">
+    <!-- Loteos dinámicos se agregarán aquí -->
+    <div class="loteo">
+      <div class="lote-card">
+        <h3>Loteo Las Chacras</h3>
+        <div class="lote">
+          <img src="./style/img/Las Chacras/IMG_4275.jpg" alt="Lote 1">
+          <h4>Lote 1</h4>
+          <p>Precio: u$20000</p>
+          <p>Superficie: 500 m²</p>
+          <p>Lote ideal para construcción de vivienda unifamiliar.</p>
+        </div>
+        <div class="lote">
+          <img src="./style/img/Las Chacras/IMG_4274.jpg" alt="Lote 2">
+          <h4>Lote 2</h4>
+          <p>Precio: $55000</p>
+          <p>Superficie: 450 m²</p>
+          <p>Lote residencial con gran potencial de desarrollo.</p>
+        </div>
+        <!-- Repetir para los otros lotes del Loteo Las Chacras -->
+      </div>
+    </div>
+
+    <div class="loteo">
+      <div class="lote-card">
+        <h3>Loteo La Aldea</h3>
+        <div class="lote">
+          <img src="./style/img/villa AMANCAY/IMG_2054.jpg" alt="Lote 4">
+          <h4>Lote 4</h4>
+          <p>Precio: $62000</p>
+          <p>Superficie: 480 m²</p>
+          <p>Lote plano en zona residencial tranquila.</p>
+        </div>
+        <div class="lote">
+          <img src="images/lote5.jpg" alt="Lote 5">
+          <h4>Lote 5</h4>
+          <p>Precio: $67000</p>
+          <p>Superficie: 500 m²</p>
+          <p>Lote amplio, ideal para proyectos comerciales.</p>
+        </div>
+        <!-- Repetir para los otros lotes del Loteo San Fernando -->
+      </div>
+    </div>
+
+    <div class="loteo">
+      <div class="lote-card">
+        <h3>Loteo Villa Amancay</h3>
+        <div class="lote">
+          <img src="./style/img/villa AMANCAY/IMG_2966.jpg" alt="Lote 7">
+          <h4>Lote 35</h4>
+          <p>Precio: $70000</p>
+          <p>Superficie: 550 m²</p>
+          <p>Lote con vistas panorámicas al paisaje natural.</p>
+        </div>
+        <div class="lote">
+          <img src="./style/img/villa AMANCAY/IMG_2967.jpg" alt="Lote 8">
+          <h4>Lote 8</h4>
+          <p>Precio: $75000</p>
+          <p>Superficie: 600 m²</p>
+          <p>Lote grande con acceso a servicios básicos.</p>
+        </div>
+        <!-- Repetir para los otros lotes del Loteo Los Nogales -->
+      </div>
+    </div>
+
+  </div>
+
+  <div id="map" style="height: 400px;"></div>
+
+  <script src="index.js"></script>
+</body>
+</html>
