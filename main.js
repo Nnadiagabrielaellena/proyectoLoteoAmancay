@@ -29,11 +29,10 @@ const loteos = [
 ];
 
 document.getElementById("searchBtn").addEventListener("click", function() {
-  // Obtener los valores de los precios desde los inputs
   const minPrice = parseInt(document.getElementById("minPrice").value) || 0;
   const maxPrice = parseInt(document.getElementById("maxPrice").value) || Infinity;
 
-  // Filtrar los loteos según el precio
+  // Filtrar los loteos
   const filteredLoteos = loteos.map(loteo => {
     const filteredLotes = loteo.lotes.filter(lote => lote.precio >= minPrice && lote.precio <= maxPrice);
     return { ...loteo, lotes: filteredLotes };
@@ -43,7 +42,6 @@ document.getElementById("searchBtn").addEventListener("click", function() {
   const loteosContainer = document.getElementById("loteos-container");
   loteosContainer.innerHTML = "";
 
-  // Mostrar los loteos filtrados
   filteredLoteos.forEach(loteo => {
     const loteoDiv = document.createElement("div");
     loteoDiv.classList.add("loteo");
@@ -85,10 +83,9 @@ document.getElementById("searchBtn").addEventListener("click", function() {
     loteosContainer.appendChild(loteoDiv);
   });
 
-  // Si el mapa no está inicializado, crear uno
+  // Inicializar el mapa si no lo está
   if (!map) {
-    map = L.map('map').setView([-32.198563, -64.584735], 14); // Coordenadas iniciales del mapa
-
+    map = L.map('map').setView([-32.198563, -64.584735], 14); // Coordenadas iniciales
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
@@ -106,10 +103,9 @@ document.getElementById("searchBtn").addEventListener("click", function() {
     const marker = L.marker(loteo.coordenadas).addTo(map);
     marker.bindPopup(`<b>${loteo.nombre}</b><br>${loteo.lotes.length} Lotes disponibles`);
 
-    // Agregar la funcionalidad de "Cómo llegar" con Google Maps
-    const urlGoogleMaps = `https://www.google.com/maps/dir/?api=1&destination=${loteo.coordenadas[0]},${loteo.coordenadas[1]}`;
+    // Función para redirigir a Google Maps para obtener direcciones
     marker.on('click', function () {
-      window.open(urlGoogleMaps, "_blank");
+      window.location.href = `https://www.google.com/maps/dir/?api=1&destination=${loteo.coordenadas[0]},${loteo.coordenadas[1]}`;
     });
   });
 });
